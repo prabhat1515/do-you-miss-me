@@ -47,8 +47,11 @@ const MissMe = () => {
 
           {/* Title */}
           <h1 className="text-6xl md:text-7xl font-bold bg-gradient-romantic bg-clip-text text-transparent tracking-tight">
-            Do You Miss Me?
+          Yes baby, I miss you a lot… 💕
           </h1>
+          <h2 className="text-6xl md:text-7xl font-bold bg-gradient-romantic bg-clip-text text-transparent tracking-tight">
+          Can you feel how much I’m missing you? 
+          </h2>
 
           {/* Buttons */}
           <div className="flex gap-6 justify-center items-center flex-wrap pt-4">

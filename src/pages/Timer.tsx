@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Heart, Clock } from "lucide-react";
 
 const Timer = () => {
-  const INITIAL_TIME = 80 * 60; // 1 hour 20 minutes in seconds
+  const INITIAL_TIME = 20 * 60; // 1 hour 20 minutes in seconds
   const [timeRemaining, setTimeRemaining] = useState(INITIAL_TIME);
 
   useEffect(() => {
@@ -55,13 +55,13 @@ const Timer = () => {
               fill="currentColor" 
             />
             <div className="absolute -top-2 -right-2 animate-bounce">
-              🚗💨
+            😭💓
             </div>
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
-            Your baby is on the way!
-          </h1>
+          My heart will burst if I don’t get to see you in 
+          </h1> 
         </div>
 
         <div className="relative">
@@ -84,7 +84,7 @@ const Timer = () => {
         </div>
 
         <p className="text-muted-foreground text-lg">
-          Counting down every moment until we're together 💕
+          Counting down every moment until my heart explodes 💕
         </p>
       </div>
     </div>
