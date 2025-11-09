@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Heart, Clock } from "lucide-react";
 
 const Timer = () => {
   const INITIAL_TIME = 20 * 60; // 1 hour 20 minutes in seconds
   const [timeRemaining, setTimeRemaining] = useState(INITIAL_TIME);
+  
+  // Check if timer was properly started
+  const startTime = sessionStorage.getItem("timerStartTime");
+  
+  if (!startTime) {
+    return <Navigate to="/404" replace />;
+  }
 
   useEffect(() => {
-    // Get or set the start time
-    let startTime = sessionStorage.getItem("timerStartTime");
-    
-    if (!startTime) {
-      // If no start time exists, set it now
-      startTime = Date.now().toString();
-      sessionStorage.setItem("timerStartTime", startTime);
-    }
+    // Get the start time (we know it exists from the check above)
+    const timerStart = sessionStorage.getItem("timerStartTime")!;
 
     const calculateTimeRemaining = () => {
-      const start = parseInt(startTime!);
+      const start = parseInt(timerStart);
       const now = Date.now();
       const elapsedSeconds = Math.floor((now - start) / 1000);
       const remaining = Math.max(0, INITIAL_TIME - elapsedSeconds);
