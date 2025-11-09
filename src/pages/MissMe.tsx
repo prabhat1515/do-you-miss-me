@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
 
 const MissMe = () => {
   const [isSwapped, setIsSwapped] = useState(false);
@@ -25,58 +24,71 @@ const MissMe = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-soft p-4">
-      <div className="text-center space-y-12 max-w-2xl w-full animate-in fade-in duration-700">
-        <div className="space-y-6">
-          <Heart className="w-20 h-20 mx-auto text-primary animate-pulse" fill="currentColor" />
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
-            Do you miss me?
+    <div className="min-h-screen flex items-center justify-center bg-gradient-pink-bg p-4 relative overflow-hidden">
+      {/* Floating Hearts */}
+      <div className="floating-heart">💕</div>
+      <div className="floating-heart">💖</div>
+      <div className="floating-heart">💗</div>
+      <div className="floating-heart">💝</div>
+      <div className="floating-heart">💘</div>
+      <div className="floating-heart">💕</div>
+      <div className="floating-heart">💖</div>
+      <div className="floating-heart">💗</div>
+      <div className="floating-heart">💝</div>
+      <div className="floating-heart">💘</div>
+
+      {/* Main Card */}
+      <div className="bg-white/95 backdrop-blur-sm rounded-[3rem] p-12 shadow-2xl max-w-2xl w-full animate-in fade-in duration-700 relative z-10">
+        <div className="text-center space-y-8">
+          {/* Pleading Emoji */}
+          <div className="text-8xl animate-pulse">
+            🥺
+          </div>
+
+          {/* Title */}
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-romantic bg-clip-text text-transparent tracking-tight">
+            Do You Miss Me?
           </h1>
-        </div>
 
-        <div className="flex gap-6 justify-center items-center flex-wrap">
-          {!isSwapped ? (
-            <>
-              <Button
-                size="lg"
-                onClick={handleYesClick}
-                className="text-xl px-12 py-8 bg-gradient-romantic hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Yes! 💕
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onMouseEnter={handleNoHover}
-                className="text-xl px-12 py-8 border-2 border-primary text-foreground hover:bg-secondary transition-all duration-300"
-              >
-                No
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                size="lg"
-                variant="outline"
-                onMouseLeave={handleMouseLeave}
-                className="text-xl px-12 py-8 border-2 border-primary text-foreground hover:bg-secondary transition-all duration-300"
-              >
-                No
-              </Button>
-              <Button
-                size="lg"
-                onClick={handleYesClick}
-                className="text-xl px-12 py-8 bg-gradient-romantic hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Yes! 💕
-              </Button>
-            </>
-          )}
+          {/* Buttons */}
+          <div className="flex gap-6 justify-center items-center flex-wrap pt-4">
+            {!isSwapped ? (
+              <>
+                <Button
+                  size="lg"
+                  onClick={handleYesClick}
+                  className="text-2xl px-16 py-10 rounded-[2rem] bg-gradient-to-br from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white shadow-xl transition-all duration-300 transform hover:scale-105 font-semibold"
+                >
+                  Yes! 💕
+                </Button>
+                <Button
+                  size="lg"
+                  onMouseEnter={handleNoHover}
+                  className="text-2xl px-16 py-10 rounded-[2rem] bg-gray-300 hover:bg-gray-400 text-gray-700 shadow-lg transition-all duration-300 font-semibold"
+                >
+                  No
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  size="lg"
+                  onMouseLeave={handleMouseLeave}
+                  className="text-2xl px-16 py-10 rounded-[2rem] bg-gray-300 hover:bg-gray-400 text-gray-700 shadow-lg transition-all duration-300 font-semibold"
+                >
+                  No
+                </Button>
+                <Button
+                  size="lg"
+                  onClick={handleYesClick}
+                  className="text-2xl px-16 py-10 rounded-[2rem] bg-gradient-to-br from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white shadow-xl transition-all duration-300 transform hover:scale-105 font-semibold"
+                >
+                  Yes! 💕
+                </Button>
+              </>
+            )}
+          </div>
         </div>
-
-        <p className="text-muted-foreground text-sm mt-8">
-          (Try hovering over "No" 😏)
-        </p>
       </div>
     </div>
   );

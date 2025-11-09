@@ -61,6 +61,7 @@ export default {
       backgroundImage: {
         'gradient-romantic': 'var(--gradient-romantic)',
         'gradient-soft': 'var(--gradient-soft)',
+        'gradient-pink-bg': 'var(--gradient-pink-bg)',
       },
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
